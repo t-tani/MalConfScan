@@ -113,7 +113,7 @@ class emotetConfig(taskmods.DllList):
                                 if ip == "\x00\x00\x00\x00" and port == 0:
                                     break
                                 else:
-                                    p_data[inet_ntoa(ip)] = port
+                                    p_data["Host_{:0=3}".format(int((d-12)/8))] = "{ip}:{port}".format(ip=inet_ntoa(ip),port=port)
                         except:
                             outfd.write("[!] Not found config data.\n")
 
